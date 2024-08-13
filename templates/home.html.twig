@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <title>Calculateur des frais de douane pour l'importation de voiture anglaise</title>
+        <link rel="stylesheet" href="{{ asset('home.css') }}"/>
+        <script lang="application/javascript" src="{{ asset('home.js') }}"></script>
+    </head>
+    <body class="container py-5">
+        <h1 class="is-size-3 mb-5">Calculateur des frais de douane pour l'importation de voiture anglaise</h1>
+        <p class="has-text-justified">
+            Cet outil a pour but de calculer rapidement est de manière plutôt précise les frais de dédouanement d'un véhicule anglais importé sur le sol français.<br/>
+            <b>À noter que le paiement de ces frais doit être effectué auprès des services de douanes directement à la frontière ou dans un délai de 30 jours.<br/></b>
+            Le service des douanes vous demandera une facture d'achat avec le prix du véhicule en Livres sterling.<br/>
+            Pour que cet outil calcul de manière précise le montant des frais, merci d'entrer le prix d'achat du véhicule en Livres sterling.<br/>
+            Si vous souhaitez consulter le tutoriel complet pour importer sans encombre un véhicule depuis l'Angleterre, rendez-vous sur l'article disponible sur <a href="{{ REVSQUAD_TUTO_ARTICLE_LINK }}" target="_blank"> le site de RevSquad</a>.<br/><br/>
+            Projet créé par <a href="https://github.com/KriKrixs" target="_blank" rel="noopener noreferrer">Kylian BARUSSEAU</a> et disponible sur <a href="https://github.com/KriKrixs/French-Customs-Tax-Calculator" target="_blank" rel="noopener noreferrer">GitHub</a>.<br/>
+            Dernière mise à jour le <b>{{ LATEST_UPDATE }}</b>
+        </p>
+        <hr/>
+        <input id="exchangeRate" value="{{ exchangeRate }}" disabled/>
+        <label for="vehiclePrice">Prix du véhicule en Livres sterling</label><br/>
+        <span class="input-sign input-gbp">
+            <input id="vehiclePrice" type="number" />
+        </span><br/>
+        {% if(exchangeIsUpdated == false) %}
+            <p><b>ATTENTION : </b>Le taux de change n'a pas pu être actualisé, nous utilisons la valeur par défaut (1 EUR = {{ exchangeRate }} GBP)</p>
+        {% else %}
+            <p>Le taux de change est automatiquement calculé chaque jour. Actuellement 1 EUR = {{ exchangeRate }} GBP</p>
+        {% endif %}
+        <hr/>
+        <label for="customsTax">Frais de dédouanement (10% du prix d'achat)</label><br/>
+        <span class="input-sign input-eur">
+            <input id="customsTax" readonly value="0"/>
+        </span><br/>
+        <label for="vat">TVA (20% du prix d'achat + frais de dédouanement)</label><br/>
+        <span class="input-sign input-eur">
+            <input id="vat" readonly value="0"/>
+        </span><br/>
+        <label for="total"><b>Total</b></label><br/>
+        <span class="input-sign input-eur">
+            <input id="total" readonly value="0"/>
+        </span>
+    </body>
+</html>
