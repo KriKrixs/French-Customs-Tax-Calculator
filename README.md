@@ -1,5 +1,7 @@
 # French Customs Tax Calculator
 
+Link to use it : [https://tools.barusseau.fr/fr-customs-tax-calculator](https://tools.barusseau.fr/fr-customs-tax-calculator)
+
 This little tool calculate the price of the customs tax when importing a UK car based on the buy price.
 
 Maybe someday, this tool will be out of date regarding current regulation.
