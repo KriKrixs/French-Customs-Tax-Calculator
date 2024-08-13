@@ -7,7 +7,9 @@ This little tool calculate the price of the customs tax when importing a UK car 
 Maybe someday, this tool will be out of date regarding current regulation.
 If it's the case, [create a new issue](https://github.com/KriKrixs/French-Customs-Tax-Calculator/issues/new)
 
-Since i'm kinda lazy, i decided to gain on dev time and base this tool on Symfony 6.4 even if it's overkill. Will probably remake it on PHP vanilla this later this year.
+Since i'm kinda lazy, i decided to gain on dev time and base this tool on Symfony 6.4 even if it's overkill. 
+
+I'm thinking of making a toolbox or to remake it on PHP vanilla this later this year.
 
 ## Requirements
 

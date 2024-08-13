@@ -14,7 +14,7 @@ class HomeController extends AbstractController
         private readonly HttpClientInterface $client,
     ) { }
 
-    #[Route('/', name: 'app_home')]
+    #[Route('/fr-customs-tax-calculator', name: 'app_home')]
     public function index(): Response
     {
         $exchangeRate = floatval($_ENV["DEFAULT_EXCHANGE_RATE"]);
