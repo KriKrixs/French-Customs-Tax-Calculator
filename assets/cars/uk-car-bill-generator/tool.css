@@ -1,0 +1,41 @@
+table {
+    width: 100%;
+    text-align: start;
+    border-collapse: collapse;
+    margin-bottom: 2rem;
+}
+
+table, th, td {
+  border: 1px solid;
+}
+
+th {
+    width: 50%;
+}
+
+input {
+    margin: 0;
+    width: calc(100% - 1.25rem);
+}
+
+tr td:first-child {
+    text-align: end;
+    padding-right: 1rem;
+}
+
+button {
+    display: inline-block;
+    outline: 0;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 1rem;
+    height: 30px;
+    background-color: #2ea44f;
+    color: white;
+    padding: 0 20px;
+}
+
+button:hover {
+    background-color: #2c974b;
+}

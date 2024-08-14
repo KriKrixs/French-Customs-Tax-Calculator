@@ -1,0 +1,88 @@
+{% extends 'base.html.twig' %}
+
+{% set favicon = asset("cars/uk-car-bill-generator/tool.ico") %}
+{% set css = asset("cars/uk-car-bill-generator/tool.css") %}
+{% set js = "" %}
+
+{% block body %}
+    <h1>{{ title }}</h1>
+    <p>
+        {{ description }}<br/>
+        Cette facture vous servira notamment lors du processus de dédouanement et d'immatriculation du véhicule importé<br/>
+        Vous pouvez calculer les frais de dédouanement en utilisant mon outil disponible <a href="{{ path('cars_fr-customs-tax-calculator') }}">ici</a><br/>
+        <b>ATTENTION :</b> il ne s'agit en aucun cas d'une facture "officiel". C'est simplement le modèle de facture que j'ai pu utiliser lors de mes précédents imports.<br/>
+        Il est également possible que les éléments nécessaires dans cette facture évoluent. Tenez-vous informer.<br/>
+        Si vous souhaitez consulter le tutoriel complet pour importer sans encombre un véhicule depuis l'Angleterre, rendez-vous sur l'article disponible sur <a href="{{ REVSQUAD_TUTO_ARTICLE_LINK }}" target="_blank"> le site de RevSquad</a>.<br/><br/>
+        Pensez à bien relire la facture pour vous assurer qu'elle ne comporte aucune erreur.<br/>
+        Pensez également à bien imprimer puis faire signer la facture par les 2 parties.<br/><br/>
+        Projet créé par <a href="https://github.com/KriKrixs" target="_blank" rel="noopener noreferrer">Kylian BARUSSEAU</a> et disponible sur <a href="https://github.com/KriKrixs/RandomTools" target="_blank" rel="noopener noreferrer">GitHub</a>.<br/>
+        Dernière mise à jour le <b>{{ LATEST_UPDATE }}</b>
+    </p>
+    <hr/>
+    <p><b>Tous les champs doivent être remplis</b></p>
+    {{ form_start(form) }}
+        <table>
+            <tr>
+                <th>Nom du champ</th>
+                <th>Valeur</th>
+            </tr>
+            <tr>
+                <td>{{ form_label(form.buyDate) }}</td>
+                <td>{{ form_widget(form.buyDate) }}</td>
+            </tr>
+            <tr>
+                <td>{{ form_label(form.sellerName) }}</td>
+                <td>{{ form_widget(form.sellerName) }}</td>
+            </tr>
+            <tr>
+                <td>{{ form_label(form.sellerAddress) }}</td>
+                <td>{{ form_widget(form.sellerAddress) }}</td>
+            </tr>
+            <tr>
+                <td>{{ form_label(form.buyerName) }}</td>
+                <td>{{ form_widget(form.buyerName) }}</td>
+            </tr>
+            <tr>
+                <td>{{ form_label(form.buyerAddress) }}</td>
+                <td>{{ form_widget(form.buyerAddress) }}</td>
+            </tr>
+            <tr>
+                <td>{{ form_label(form.carBrand) }}</td>
+                <td>{{ form_widget(form.carBrand) }}</td>
+            </tr>
+            <tr>
+                <td>{{ form_label(form.carModel) }}</td>
+                <td>{{ form_widget(form.carModel) }}</td>
+            </tr>
+            <tr>
+                <td>{{ form_label(form.carYear) }}</td>
+                <td>{{ form_widget(form.carYear) }}</td>
+            </tr>
+            <tr>
+                <td>{{ form_label(form.carColor) }}</td>
+                <td>{{ form_widget(form.carColor) }}</td>
+            </tr>
+            <tr>
+                <td>{{ form_label(form.carRegistration) }}</td>
+                <td>{{ form_widget(form.carRegistration) }}</td>
+            </tr>
+            <tr>
+                <td>{{ form_label(form.carMileage) }}</td>
+                <td>{{ form_widget(form.carMileage) }}</td>
+            </tr>
+            <tr>
+                <td>{{ form_label(form.carVIN) }}</td>
+                <td>{{ form_widget(form.carVIN) }}</td>
+            </tr>
+            <tr>
+                <td>{{ form_label(form.carPrice) }}</td>
+                <td>{{ form_widget(form.carPrice) }}</td>
+            </tr>
+        </table>
+        <p>
+            <b>L'utilisation de cet outil est fournie à titre informatif et sans garantie.</b><br/>
+            <b>En conséquence, vous reconnaissez qu'aucune action en justice ne peut être engagée contre le fournisseur de l'outil pour toute répercussion découlant de son utilisation.</b>
+        </p>
+        {{ form_row(form.submit) }}
+    {{ form_end(form) }}
+{% endblock %}

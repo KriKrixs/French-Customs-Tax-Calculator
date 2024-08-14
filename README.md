@@ -1,20 +1,29 @@
-# French Customs Tax Calculator
+# RandomTools
 
-Link to use it : [https://tools.barusseau.fr/fr-customs-tax-calculator](https://tools.barusseau.fr/fr-customs-tax-calculator)
+Link to use them : [https://tools.barusseau.fr/](https://tools.barusseau.fr/)
 
-This little tool calculate the price of the customs tax when importing a UK car based on the buy price.
+This is a web toolbox containing different type of mini tools that i found useful
 
-Maybe someday, this tool will be out of date regarding current regulation.
-If it's the case, [create a new issue](https://github.com/KriKrixs/French-Customs-Tax-Calculator/issues/new)
+## Tools list
 
-Since i'm kinda lazy, i decided to gain on dev time and base this tool on Symfony 6.4 even if it's overkill. 
+Maybe someday, those tools will be out of date regarding current regulation or anything else.
 
-I'm thinking of making a toolbox or to remake it on PHP vanilla this later this year.
+If it's the case, [create a new issue](https://github.com/KriKrixs/RandomTools/issues/new) with the following title `[Tool Name] - Outdated` and a detailed description
+
+- [**French Customs Tax Calculator**](https://tools.barusseau.fr/cars/fr-customs-tax-calculator)
+
+    Calculate the price of the customs tax when importing a UK car based on the buy price in pound.
+
+
+- [**UK Car Bill Generator**](https://tools.barusseau.fr/cars/uk-car-bill-generator)
+
+    Generate a bill that you need to provide the seller in order to pay the customs tax and register a UK car in France
 
 ## Requirements
 
 - PHP 8.3
 - Composer 2
+- wkhtmltopdf
 
 ## Install
 
@@ -24,6 +33,7 @@ I'm thinking of making a toolbox or to remake it on PHP vanilla this later this 
 $ symfony check:requirements
 ```
 
+- Install the software called `wkhtmltopdf` following their [website](https://wkhtmltopdf.org)
 - Copy the `.env.local.template` file and paste it as `.env.local`
 - Fill all the variables
 - Install all the dependencies by running this command

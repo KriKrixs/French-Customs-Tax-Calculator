@@ -1,0 +1,148 @@
+{% extends 'base.html.twig' %}
+
+{% set favicon = asset("app.ico") %}
+{% set css = "" %}
+{% set js = "" %}
+
+{% block customHead %}
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <style>
+        p { font-family: "Arial", cursive; }
+        h1 { font-family: "Arial", cursive; }
+        h2 { font-family: "Arial", cursive; margin: 0 }
+        ol { font-family: "Arial", cursive; }
+        li { font-family: "Arial", cursive; }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <h1 style="text-align: center">{{ title }}</h1>
+    <br/>
+    <h2 style="text-indent: 2rem">1. Seller's Details</h2><br/>
+    <p>Full name : {{ data.sellerName }}</p>
+    <p>Address : {{ data.sellerAddress }}</p>
+    <br/><h2 style="text-indent: 2rem">2. Buyer's Details</h2><br/>
+    <p>Full name : {{ data.buyerName }}</p>
+    <p>Address : {{ data.buyerAddress }}</p>
+    <br/><h2 style="text-indent: 2rem">3. Vehicle Details</h2><br/>
+    <p>Make : {{ data.carBrand }}</p>
+    <p>Model : {{ data.carModel }}</p>
+    <p>Year : {{ data.carYear }}</p>
+    <p>Colour : {{ data.carColor }}</p>
+    <p>Vehicle Registration : {{ data.carRegistration }}</p>
+    <p>Current Mileage : {{ data.carMileage }} Miles</p>
+    <p>VIN/Chassis Number : {{ data.carVIN }}</p>
+    <p>Vehicle Sale Price (advertised) : £{{ data.carPrice }}</p>
+    <p>Amount Paid by Buyer : £{{ data.carPrice }}</p>
+    <br/><h2 style="text-indent: 2rem">4. Seller's Warranties</h2><br/>
+    <ol style="padding-left: 1rem">
+        <li>I, the Seller, warrant that :</li>
+        <ol type="a">
+            <li>The Vehicle is free of any liens, encumbrances or liabilities</li>
+            <li>I am the legal owner of the Vehicle</li>
+            <li>I have full right and authority to sell and deliver the Vehicle</li>
+            <li>I will defend the title of the Vehicle against any and all claims and demands</li>
+        </ol>
+    </ol>
+    <br/><h2 style="text-indent: 2rem">5. Seller's Declaration</h2><br/>
+    <ol style="padding-left: 1rem">
+        <li>I, the Seller, confirm that :</li>
+        <ol type="a">
+            <li>I accept full and final payment of £{{ data.carPrice }} from you, the Buyer, for the Vehicle</li>
+            <li>The Vehicle is not stolen and has not been stolen in the past</li>
+            <li>There is no outstanding finance or money owed on the Vehicle</li>
+            <li>The Vehicle has not been used as a rental Vehicle</li>
+            <li>Full details of any accidents involving the Vehicle have been declared in full to you, the Buyer</li>
+            <li>There are no known faults with the Vehicle which have not been fully disclosed and explained to you, the Buyer</li>
+            <li>The Vehicle is not an unregistered import</li>
+            <li>I have given to you, the Buyer, all spare keys, service manuals, radio and other codes for the Vehicle</li>
+            <li>The Vehicle has not been an insurance write-off category A, B, C or D</li>
+            <li>The Vehicle has not been scrapped</li>
+            <li>I am not linked to any car or van or similar dealer</li>
+        </ol>
+    </ol>
+    <br/><h2 style="text-indent: 2rem">6. Seller's Obligations</h2><br/>
+    <ol style="padding-left: 1rem">
+        <li>I, the Seller, confirm that i will provide you with and transfer to you, the Buyer :</li>
+        <ol type="a">
+            <li>Good title to the Vehicle which shall transfer to you on payment of £{{ data.carPrice }}</li>
+            <li>The Vehicle and associated paperwork including :</li>
+            <ol type="i">
+                <li>A valid MOT certificate</li>
+                <li>The V5 Registration Certificate stating the true mileage is given with the Vehicle</li>
+                <li>Any other documents or assistance to enable you, the Buyer, to complete the registration, tax and insurance for the Vehicle immediately after it is sold</li>
+            </ol>
+        </ol>
+    </ol>
+    <ol style="padding-left: 1rem">
+        <li>I confirm i will post the New Keeper registration certificate document to the DVLA within 3 working days from the date of this agreement</li>
+    </ol>
+    <br/><h2 style="text-indent: 2rem">7. Buyer's Declaration</h2><br/>
+    <ol style="padding-left: 1rem">
+        <li>I, the Buyer, confirm and represent that :</li>
+        <ol type="a">
+            <li>All personal details given are current and accurate</li>
+            <li>I have received the New Keeper Supplement from the V5 Certificate</li>
+            <li>I am not linked to a vehicle buying or selling network or advertising group</li>
+            <li>I have carried out an HPI or AA check on the Vehicle</li>
+        </ol>
+    </ol>
+    <br/><h2 style="text-indent: 2rem">8. Buyer's Acknowledgements</h2><br/>
+    <ol style="padding-left: 1rem">
+        <li>I, the Buyer, accept that :</li>
+        <ol type="a">
+            <li>The Vehicle is sold in its current condition</li>
+            <li>The Vehicle is sold as seen without any warranty from you, the Seller</li>
+        </ol>
+    </ol>
+    <br/><h2 style="text-indent: 2rem">9. Payment and Ownership</h2><br/>
+    <p>The price is paid by the Buyer and received by the Seller in full and final payment for the ownership of the Vehicle</p>
+    <br/><h2 style="text-indent: 2rem">10. Buyer's Obligations</h2><br/>
+    <ol style="padding-left: 1rem">
+        <li>I, the Buyer, agree and confirm that :</li>
+        <ol type="a">
+            <li>I will pay £{{ data.carPrice }} for the Vehicle</li>
+            <li>I must pay £{{ data.carPrice }} by cash or cleared funds before i can take ownership of or collect the Vehicle</li>
+            <li>I cannot pay any money through any escrow service, Western Union or MoneyGram unless you, the Seller, agree</li>
+        </ol>
+    </ol>
+    <br/><h2 style="text-indent: 2rem">11. General</h2><br/>
+    <ol style="padding-left: 1rem">
+        <li>This agreement, including any Annex, contains the whole agreement between the Seller and the Buyer relating to its subject and supersedes all prior discussions, arrangements or agreements that might have been taken place</li>
+        <li>This agreement is between the Seller and the Buyer. No other person will have any rights to enforce any of its terms</li>
+        <li>This agreement shall be governed by and interpreted according to the law of England and Wales and all disputes arising under the agreement (including non-contractual disputes for claims) shall be subject to the exclusive jurisdiction of the English and Welsh courts</li>
+    </ol>
+    <br/><h2 style="text-indent: 2rem">12. Signatures</h2><br/>
+    <table style="width: 100%">
+        <tr style="height: 10rem">
+            <td style="width: 60%; vertical-align: bottom;">
+                <div style="width: 90%">
+                    <hr/>
+                    <p>{{ data.sellerName }}</p>
+                </div>
+            </td>
+            <td style="width: 40%; vertical-align: bottom;">
+                <div style="width: 100%">
+                    <p>{{ data.buyDate|date("d/m/Y") }}</p>
+                    <hr/>
+                    <p>Date of signature</p>
+                </div>
+            </td>
+        </tr>
+        <tr style="height: 10rem">
+            <td style="width: 60%; vertical-align: bottom;">
+                <div style="width: 90%">
+                    <hr/>
+                    <p>{{ data.buyerName }}</p>
+                </div>
+            </td>
+            <td style="width: 40%; vertical-align: bottom;">
+                <div style="width: 100%">
+                    <p>{{ data.buyDate|date("d/m/Y") }}</p>
+                    <hr/>
+                    <p>Date of signature</p>
+                </div>
+            </td>
+        </tr>
+    </table>
+{% endblock %}
