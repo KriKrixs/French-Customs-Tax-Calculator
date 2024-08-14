@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% set favicon = asset("cars/fr-customs-tax-calculator/tool.ico") %}
+{% set css = asset("cars/fr-customs-tax-calculator/tool.css") %}
+{% set js = asset("cars/fr-customs-tax-calculator/tool.js") %}
+
+{% block body %}
+    <h1>{{ title }}</h1>
+    <p>
+        {{ description }}<br/>
+        <b>À noter que le paiement de ces frais doit être effectué auprès des services de douanes directement à la frontière ou dans un délai de 30 jours.<br/></b>
+        Le service des douanes vous demandera une facture d'achat avec le prix du véhicule en Livres sterling.<br/>
+        Vous pouvez générer cette facture en utilisant mon outil disponible <a href="{{ path('cars_uk-car-bill-generator') }}">ici</a>
+        Pour que cet outil calcul de manière précise le montant des frais, merci d'entrer le prix d'achat du véhicule en Livres sterling.<br/>
+        Si vous souhaitez consulter le tutoriel complet pour importer sans encombre un véhicule depuis l'Angleterre, rendez-vous sur l'article disponible sur <a href="{{ REVSQUAD_TUTO_ARTICLE_LINK }}" target="_blank"> le site de RevSquad</a>.<br/><br/>
+        Projet créé par <a href="https://github.com/KriKrixs" target="_blank" rel="noopener noreferrer">Kylian BARUSSEAU</a> et disponible sur <a href="https://github.com/KriKrixs/RandomTools" target="_blank" rel="noopener noreferrer">GitHub</a>.<br/>
+        Dernière mise à jour le <b>{{ LATEST_UPDATE }}</b>
+    </p>
+    <hr/>
+    <input id="exchangeRate" value="{{ exchangeRate }}" disabled/>
+    <label for="vehiclePrice">Prix du véhicule en Livres sterling</label><br/>
+    <span class="input-sign input-gbp">
+        <input id="vehiclePrice" type="number" />
+    </span><br/>
+    {% if(exchangeIsUpdated == false) %}
+        <p><b>ATTENTION : </b>Le taux de change n'a pas pu être actualisé, nous utilisons la valeur par défaut (1 EUR = {{ exchangeRate }} GBP)</p>
+    {% else %}
+        <p>Le taux de change est automatiquement calculé chaque jour. Actuellement 1 EUR = {{ exchangeRate }} GBP</p>
+    {% endif %}
+    <hr/>
+    <label for="customsTax">Frais de dédouanement (10% du prix d'achat)</label><br/>
+    <span class="input-sign input-eur">
+        <input id="customsTax" readonly value="0"/>
+    </span><br/>
+    <label for="vat">TVA (20% du prix d'achat + frais de dédouanement)</label><br/>
+    <span class="input-sign input-eur">
+        <input id="vat" readonly value="0"/>
+    </span><br/>
+    <label for="total"><b>Total</b></label><br/>
+    <span class="input-sign input-eur">
+        <input id="total" readonly value="0"/>
+    </span>
+{% endblock %}
